@@ -1,0 +1,225 @@
+:root {
+  --main-color: #00ff00;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(#02173f, #0a315e);
+}
+
+.container {
+  height: 100svh;
+  width: 100vw;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  position: relative;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+.container .calculator {
+  transition-duration: 300ms;
+  overflow: hidden;
+  max-height: 8rem;
+  width: clamp(200px, 80%, 400px);
+  border-radius: 0.5rem;
+  background-color: #01163d;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  box-shadow: 2px 2px 5px 1px #051f50;
+}
+.container .calculator form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.container .calculator form:has(input:not(:-moz-placeholder-shown)) button {
+  background-color: var(--main-color);
+}
+.container .calculator form:has(input:not(:placeholder-shown)) button {
+  background-color: var(--main-color);
+}
+.container .calculator form .input {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+}
+.container .calculator form .input:has(input:not(:-moz-placeholder-shown)) label {
+  transform: none;
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--main-color);
+}
+.container .calculator form .input:has(input:focus) label, .container .calculator form .input:has(input:not(:placeholder-shown)) label {
+  transform: none;
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--main-color);
+}
+.container .calculator form .input:has(input:not(:-moz-placeholder-shown)) label::after {
+  display: none;
+}
+.container .calculator form .input:has(input:focus) label::after, .container .calculator form .input:has(input:not(:placeholder-shown)) label::after {
+  display: none;
+}
+.container .calculator form .input:has(input:not(:-moz-placeholder-shown)) .input-format::before {
+  opacity: 1;
+}
+.container .calculator form .input:has(input:not(:placeholder-shown)) .input-format::before {
+  opacity: 1;
+}
+.container .calculator form .input input {
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  border: 1px solid var(--main-color);
+  color: white;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  caret-color: var(--main-color);
+}
+.container .calculator form .input input::-webkit-outer-spin-button, .container .calculator form .input input::-webkit-inner-spin-button, .container .calculator form .input input::placeholder {
+  opacity: 0;
+}
+.container .calculator form .input label {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #01163d;
+  padding-inline: 0.25rem;
+  transition-duration: 100ms;
+  color: darkgray;
+  cursor: pointer;
+}
+.container .calculator form .input label::after {
+  content: "[ Must be between 50,000 and 99,999,999 ]";
+  color: darkgray;
+  font-size: 0.6rem;
+  padding-left: 0.5rem;
+}
+.container .calculator form .input .input-format {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  color: darkgrey;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+}
+.container .calculator form .input .input-format::before {
+  position: absolute;
+  height: 60%;
+  width: 1px;
+  content: "";
+  background-color: darkgray;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  z-index: 10;
+  transition-duration: 0.5s;
+}
+.container .calculator form .btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .calculator form .btns button {
+  order: 2;
+  outline: none;
+  color: white;
+  border: 1px solid var(--main-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+}
+.container .calculator form .btns button:hover {
+  opacity: 0.9;
+}
+.container .calculator form .btns button:focus {
+  background-color: var(--main-color);
+}
+.container .calculator form .btns a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.6rem;
+  padding-inline: 0.25rem;
+  order: 1;
+}
+.container .calculator form .btns a:focus, .container .calculator form .btns a:hover {
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  outline: none;
+}
+.container .calculator form .btns a span {
+  color: var(--main-color);
+}
+.container .calculator .output {
+  width: 100%;
+  height: 6rem;
+  background-color: black;
+  margin-top: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  padding: 1rem;
+  color: var(--main-color);
+  position: relative;
+  font-size: min(2.5vmax, 1rem);
+  display: flex;
+  align-items: center;
+}
+.container .calculator .output:hover #copyTax,
+.container .calculator .output:hover #copyFull {
+  opacity: 1;
+}
+.container .calculator .output #copyTax,
+.container .calculator .output #copyFull {
+  padding-inline: 2px;
+  width: 60px;
+  height: 24px;
+  background-color: var(--main-color);
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition-duration: 200ms;
+  z-index: 10;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+.container .calculator .output #copyTax:hover,
+.container .calculator .output #copyFull:hover {
+  opacity: 0.9;
+}
+.container .calculator .output #copyFull {
+  top: 28px;
+}/*# sourceMappingURL=style.css.map */
