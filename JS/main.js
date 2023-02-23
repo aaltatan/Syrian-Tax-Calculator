@@ -48,6 +48,7 @@ document.getElementById("calc").onclick = function () {
     return;
   }
   document.getElementById("clc").style.maxHeight = "20rem";
+  document.getElementById("clc").style.top = "40%";
   document.getElementById("output").innerHTML = `
   Salary = ${(+sourceSalary).toLocaleString()} <br>
   Tax = ${layersTax(sourceSalary).toLocaleString()} <br>
@@ -56,6 +57,19 @@ document.getElementById("calc").onclick = function () {
   <button id="copyTax" onclick="taxCopy()">Copy Tax</button>
   <button id="copyFull" onclick="fullCopy()">Copy Full</button>
   `;
+};
+// ---------------------------
+document.getElementById("salary").oninput = (_) => {
+  let sourceSalary = 0;
+  document.getElementById("clc").style.maxHeight = "8rem";
+  document.getElementById("clc").style.top = "50%";
+  sourceSalary = document.getElementById("salary").value.toLocaleString();
+  document.getElementById("if").innerHTML = `${parseInt(
+    sourceSalary
+  ).toLocaleString()} s.p.`;
+  if (sourceSalary === "") {
+    document.getElementById("if").innerHTML = "";
+  }
 };
 // ---------------------------
 document
@@ -76,15 +90,3 @@ function fullCopy() {
   let textCopy = Math.floor(netSalary(sourceSalary));
   navigator.clipboard.writeText(textCopy);
 }
-// ---------------------------
-document.getElementById("salary").oninput = (_) => {
-  let sourceSalary = 0;
-  document.getElementById("clc").style.maxHeight = "8rem";
-  sourceSalary = document.getElementById("salary").value.toLocaleString();
-  document.getElementById("if").innerHTML = `${parseInt(
-    sourceSalary
-  ).toLocaleString()} s.p.`;
-  if (sourceSalary === "") {
-    document.getElementById("if").innerHTML = "";
-  }
-};
