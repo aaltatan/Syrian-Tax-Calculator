@@ -5,11 +5,13 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(#02173f), to(#0a315e));
   background: linear-gradient(#02173f, #0a315e);
 }
 
@@ -26,27 +28,42 @@ body {
   }
 }
 .container .calculator {
-  transition-duration: 300ms;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
   overflow: hidden;
   max-height: 8rem;
-  width: clamp(200px, 80%, 400px);
+  width: clamp(250px, 80%, 400px);
   border-radius: 0.5rem;
   background-color: #01163d;
   position: absolute;
   left: 50%;
   top: 40%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 1rem;
-  box-shadow: 2px 2px 5px 1px #051f50;
+  -webkit-box-shadow: 2px 2px 5px 1px #051f50;
+          box-shadow: 2px 2px 5px 1px #051f50;
 }
 .container .calculator form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 1rem;
 }
 .container .calculator form:has(input:not(:-moz-placeholder-shown)) button {
+  background-color: var(--main-color);
+}
+.container .calculator form:has(input:not(:-ms-input-placeholder)) button {
   background-color: var(--main-color);
 }
 .container .calculator form:has(input:not(:placeholder-shown)) button {
@@ -57,29 +74,14 @@ body {
   height: 3rem;
   position: relative;
 }
-.container .calculator form .input:has(input:not(:-moz-placeholder-shown)) label {
-  transform: none;
-  top: -0.5rem;
-  font-size: 0.75rem;
-  color: var(--main-color);
-}
-.container .calculator form .input:has(input:focus) label, .container .calculator form .input:has(input:not(:placeholder-shown)) label {
-  transform: none;
-  top: -0.5rem;
-  font-size: 0.75rem;
-  color: var(--main-color);
-}
-.container .calculator form .input:has(input:not(:-moz-placeholder-shown)) label::after {
-  display: none;
-}
-.container .calculator form .input:has(input:focus) label::after, .container .calculator form .input:has(input:not(:placeholder-shown)) label::after {
-  display: none;
-}
 .container .calculator form .input:has(input:not(:-moz-placeholder-shown)) .input-format::before {
-  opacity: 1;
+  max-height: 60%;
+}
+.container .calculator form .input:has(input:not(:-ms-input-placeholder)) .input-format::before {
+  max-height: 60%;
 }
 .container .calculator form .input:has(input:not(:placeholder-shown)) .input-format::before {
-  opacity: 1;
+  max-height: 60%;
 }
 .container .calculator form .input input {
   border-radius: 0.5rem;
@@ -93,38 +95,82 @@ body {
   font-size: 1rem;
   caret-color: var(--main-color);
 }
+.container .calculator form .input input::-webkit-input-placeholder {
+  opacity: 0;
+}
 .container .calculator form .input input::-webkit-outer-spin-button, .container .calculator form .input input::-webkit-inner-spin-button, .container .calculator form .input input::placeholder {
   opacity: 0;
+}
+.container .calculator form .input input:not(:-moz-placeholder-shown) + label {
+  transform: none;
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--main-color);
+  width: auto;
+}
+.container .calculator form .input input:not(:-ms-input-placeholder) + label {
+  transform: none;
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--main-color);
+  width: auto;
+}
+.container .calculator form .input input:focus + label, .container .calculator form .input input:not(:placeholder-shown) + label {
+  -webkit-transform: none;
+          transform: none;
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: var(--main-color);
+  width: auto;
+}
+.container .calculator form .input input:not(:-moz-placeholder-shown) + label::after {
+  display: none;
+}
+.container .calculator form .input input:not(:-ms-input-placeholder) + label::after {
+  display: none;
+}
+.container .calculator form .input input:focus + label::after, .container .calculator form .input input:not(:placeholder-shown) + label::after {
+  display: none;
 }
 .container .calculator form .input label {
   position: absolute;
   left: 0.5rem;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   background-color: #01163d;
   padding-inline: 0.25rem;
-  transition-duration: 100ms;
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms;
   color: darkgray;
   cursor: pointer;
+  width: 90%;
 }
 .container .calculator form .input label::after {
   content: "[ Must be between 50,000 and 99,999,999 ]";
   color: darkgray;
-  font-size: 0.6rem;
+  font-size: min(2.4vw, 0.6rem);
   padding-left: 0.5rem;
+  background: transparent;
+  z-index: -1;
 }
 .container .calculator form .input .input-format {
   position: absolute;
   width: 40%;
   height: 100%;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   right: 0;
   z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: darkgrey;
-  font-size: 0.8rem;
+  font-size: min(2vmax, 0.8rem);
   padding-left: 0.5rem;
 }
 .container .calculator form .input .input-format::before {
@@ -135,19 +181,29 @@ body {
   background-color: darkgray;
   left: 0;
   top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  max-height: 0;
   z-index: 10;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 .container .calculator form .btns {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .container .calculator form .btns button {
-  order: 2;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
   outline: none;
   color: white;
   border: 1px solid var(--main-color);
@@ -168,7 +224,9 @@ body {
   color: white;
   font-size: 0.6rem;
   padding-inline: 0.25rem;
-  order: 1;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 .container .calculator form .btns a:focus, .container .calculator form .btns a:hover {
   border: none;
@@ -187,9 +245,13 @@ body {
   padding: 1rem;
   color: var(--main-color);
   position: relative;
-  font-size: min(2.5vmax, 1rem);
+  font-size: min(2vmax, 1rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .container .calculator .output:hover #copyTax,
 .container .calculator .output:hover #copyFull {
@@ -209,7 +271,8 @@ body {
   font-weight: bold;
   text-align: center;
   opacity: 0;
-  transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
   z-index: 10;
   outline: none;
   border: none;

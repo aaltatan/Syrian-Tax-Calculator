@@ -59,7 +59,10 @@ document.getElementById("calc").onclick = function () {
 };
 // ---------------------------
 document.getElementById("salary").oninput = (_) => {
-  let sourceSalary = 0;
+  let sourceSalary = document.getElementById("salary").value.toLocaleString();
+  if (sourceSalary.toString().length > 8) {
+    return;
+  }
   document.getElementById("clc").style.maxHeight = "8rem";
   sourceSalary = document.getElementById("salary").value.toLocaleString();
   document.getElementById("if").innerHTML = `${parseInt(
