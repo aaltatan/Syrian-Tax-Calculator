@@ -48,7 +48,6 @@ document.getElementById("calc").onclick = function () {
     return;
   }
   document.getElementById("clc").style.maxHeight = "20rem";
-  document.getElementById("clc").style.top = "40%";
   document.getElementById("output").innerHTML = `
   Salary = ${(+sourceSalary).toLocaleString()} <br>
   Tax = ${layersTax(sourceSalary).toLocaleString()} <br>
@@ -62,7 +61,6 @@ document.getElementById("calc").onclick = function () {
 document.getElementById("salary").oninput = (_) => {
   let sourceSalary = 0;
   document.getElementById("clc").style.maxHeight = "8rem";
-  document.getElementById("clc").style.top = "50%";
   sourceSalary = document.getElementById("salary").value.toLocaleString();
   document.getElementById("if").innerHTML = `${parseInt(
     sourceSalary
