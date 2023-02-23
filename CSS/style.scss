@@ -28,7 +28,10 @@ body {
     background-color: #01163d;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
+    @media (orientation: landscape) {
+      top: 50%;
+    }
     transform: translate(-50%, -50%);
     padding: 1rem;
     box-shadow: 2px 2px 5px 1px #051f50;
