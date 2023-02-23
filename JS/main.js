@@ -58,6 +58,15 @@ document.getElementById("calc").onclick = function () {
   `;
 };
 // ---------------------------
+document
+  .getElementById("salary")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("calc").click();
+    }
+  });
+// ---------------------------
 function taxCopy() {
   let textCopy = layersTax(document.getElementById("salary").value);
   navigator.clipboard.writeText(textCopy);
@@ -70,6 +79,7 @@ function fullCopy() {
 // ---------------------------
 document.getElementById("salary").oninput = (_) => {
   let sourceSalary = 0;
+  document.getElementById("clc").style.maxHeight = "8rem";
   sourceSalary = document.getElementById("salary").value.toLocaleString();
   document.getElementById("if").innerHTML = `${parseInt(
     sourceSalary
