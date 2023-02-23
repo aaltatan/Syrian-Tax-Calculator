@@ -67,7 +67,9 @@ document.getElementById("salary").oninput = (_) => {
   sourceSalary = document.getElementById("salary").value.toLocaleString();
   document.getElementById("if").innerHTML = `${parseInt(
     sourceSalary
-  ).toLocaleString()} s.p.`;
+  ).toLocaleString()} s.p.
+  <div class="pipe" id="pipe"></div>`;
+  document.getElementById("pipe").style.transitionDuration = "0.5s";
   if (sourceSalary === "") {
     document.getElementById("if").innerHTML = "";
   }
