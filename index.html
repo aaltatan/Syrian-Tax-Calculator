@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="icon" type="image/png" href="imgs/icons8-calculator-32.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <title>Tax Calculator</title>
   </head>
   <body>
@@ -16,12 +17,11 @@
             <input type="number" name="os" id="salary" placeholder="." />
             <label for="salary">Salary</label>
             <div class="input-format" id="if"></div>
+            <span class="tooltip" id="tooltip">50,000 &le; Salary &le; 1,000,000,000</span>
           </div>
           <div class="btns">
             <button type="button" id="calc">Calculate</button>
-            <a href="https:\\fb.com\abdtt" target="_blank"
-              >by <span>Abdullah Altatan</span></a
-            >
+            <a href="https:\\fb.com\abdtt" target="_blank">by <span>Abdullah Altatan</span></a>
           </div>
         </form>
         <div class="output" id="output"></div>

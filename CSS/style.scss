@@ -48,7 +48,6 @@ body {
         input {
           border-radius: 0.5rem;
           padding-left: 1rem;
-          border: 1px solid var(--main-color);
           color: white;
           outline: none;
           background-color: transparent;
@@ -56,6 +55,11 @@ body {
           height: 100%;
           font-size: 1rem;
           caret-color: var(--main-color);
+          border: 1px solid white;
+          &:focus,
+          &:not(:placeholder-shown) {
+            border: 1px solid var(--main-color);
+          }
           &:not(:placeholder-shown) ~ .input-format {
             .pipe {
               min-height: 60%;
@@ -95,7 +99,7 @@ body {
           cursor: pointer;
           width: 90%;
           &::after {
-            content: "[ Must be between 50,000 and 99,999,999 ]";
+            content: "e.g: 100,000 s.p.";
             color: darkgray;
             font-size: min(2.4vw, 0.6rem);
             padding-left: 0.5rem;
@@ -116,6 +120,7 @@ body {
           color: darkgrey;
           font-size: min(2vmax, 0.8rem);
           padding-left: 0.5rem;
+          text-overflow: hidden;
           .pipe {
             position: absolute;
             left: 0;
@@ -127,6 +132,14 @@ body {
             min-height: 0;
             transition-duration: 0.5s;
           }
+        }
+        .tooltip {
+          padding: 0.25rem 0.5rem;
+          color: red;
+          font-size: 0.6rem;
+          text-align: left;
+          width: 100%;
+          display: none;
         }
       }
       .btns {
@@ -199,7 +212,7 @@ body {
         top: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         opacity: 0;
         transition-duration: 200ms;
         z-index: 10;
@@ -210,10 +223,38 @@ body {
         &:hover {
           opacity: 0.9;
         }
+        i {
+          padding-inline: 0.25rem;
+        }
       }
       #copyFull {
         top: 28px;
       }
     }
+  }
+}
+.shake {
+  animation-name: shake;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(-1%);
+  }
+  20% {
+    transform: translateX(1%);
+  }
+  40% {
+    transform: translateX(-1%);
+  }
+  60% {
+    transform: translateX(1%);
+  }
+  80% {
+    transform: translateX(-1%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
