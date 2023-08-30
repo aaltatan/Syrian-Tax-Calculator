@@ -1,21 +1,17 @@
 function layersTax(salary = 0) {
   let tax = 0;
-  if (salary > 260000) {
-    tax = (salary - 260000) * 0.18 + 21000;
-  } else if (salary > 230000) {
-    tax = (salary - 230000) * 0.16 + 16200;
-  } else if (salary > 200000) {
-    tax = (salary - 200000) * 0.14 + 12000;
-  } else if (salary > 170000) {
-    tax = (salary - 170000) * 0.12 + 8400;
-  } else if (salary > 140000) {
-    tax = (salary - 140000) * 0.1 + 5400;
-  } else if (salary > 110000) {
-    tax = (salary - 110000) * 0.08 + 3000;
-  } else if (salary > 80000) {
-    tax = (salary - 80000) * 0.06 + 1200;
-  } else if (salary > 50000) {
-    tax = (salary - 50000) * 0.04;
+  if (salary > 1_100_000) {
+    tax = (salary - 1_100_000) * 0.15 + 89_703;
+  } else if (salary > 850_000) {
+    tax = (salary - 850_000) * 0.13 + 57_203;
+  } else if (salary > 650_000) {
+    tax = (salary - 650_000) * 0.11 + 35_203;
+  } else if (salary > 450_000) {
+    tax = (salary - 450_000) * 0.09 + 17_203;
+  } else if (salary > 250_000) {
+    tax = (salary - 250_000) * 0.07 + 3_203;
+  } else if (salary > 185_940) {
+    tax = (salary - 185_940) * 0.05;
   } else {
     tax = 0;
   }
@@ -56,7 +52,9 @@ salaryInput.oninput = () => {
   }
   calculator.style.maxHeight = "8rem";
   sourceSalary = salaryInput.value.toLocaleString();
-  document.getElementById("if").innerHTML = `${parseInt(sourceSalary).toLocaleString()} s.p.
+  document.getElementById("if").innerHTML = `${parseInt(
+    sourceSalary
+  ).toLocaleString()} s.p.
   <div class="pipe" id="pipe"></div>`;
   document.getElementById("pipe").style.transitionDuration = "0.5s";
   if (sourceSalary === "") {
