@@ -1,17 +1,15 @@
 function layersTax(salary = 0) {
   let tax = 0;
   if (salary > 1_100_000) {
-    tax = (salary - 1_100_000) * 0.15 + 89_703;
+    tax = (salary - 1_100_000) * 0.15 + 84_470;
   } else if (salary > 850_000) {
-    tax = (salary - 850_000) * 0.13 + 57_203;
+    tax = (salary - 850_000) * 0.13 + 51_970;
   } else if (salary > 650_000) {
-    tax = (salary - 650_000) * 0.11 + 35_203;
+    tax = (salary - 650_000) * 0.11 + 29_970;
   } else if (salary > 450_000) {
-    tax = (salary - 450_000) * 0.09 + 17_203;
-  } else if (salary > 250_000) {
-    tax = (salary - 250_000) * 0.07 + 3_203;
-  } else if (salary > 185_940) {
-    tax = (salary - 185_940) * 0.05;
+    tax = (salary - 450_000) * 0.09 + 11_970;
+  } else if (salary > 279_000) {
+    tax = (salary - 279_000) * 0.07;
   } else {
     tax = 0;
   }
