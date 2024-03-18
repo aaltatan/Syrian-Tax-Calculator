@@ -64,7 +64,22 @@ function calculate() {
   errorMessage.classList.add("hidden");
   outputContainer.classList.add("hidden");
 
-  const salary = +document.getElementById("salary").value;
+  const minSalaryValue = LAYERS[CURRENT_TAX].minSal;
+  let salary = +document.getElementById("salary").value;
+  let socialSecuritySalary = document.getElementById('ss-salary').value;
+
+  if (socialSecuritySalary < minSalaryValue && socialSecuritySalary !== '') {
+    const error = document.createTextNode("الراتب التأميني يجب أن يكون أكبر من " + minSalaryValue.toLocaleString());
+    errorMessage.appendChild(error);
+    errorMessage.classList.remove("hidden");
+    return;
+  }
+
+  if (socialSecuritySalary === '') {
+    socialSecuritySalary = salary;
+  } else if (socialSecuritySalary > 0) {
+    socialSecuritySalary = salary - (+socialSecuritySalary * 0.07)
+  }
 
   if (salary <= 0 || salary === "") {
     const error = document.createTextNode("الراتب يجب أن يكون أكبر من الصفر");
@@ -73,7 +88,7 @@ function calculate() {
     return;
   }
 
-  const taxLayerValue = taxLayer(salary);
+  const taxLayerValue = taxLayer(socialSecuritySalary);
   const grossFixedSalaryValue = grossFixedSalary(salary);
   const taxLayerRow = createRow("الضريبة", taxLayerValue.toLocaleString());
   const grossFixedSalaryRow = createRow(

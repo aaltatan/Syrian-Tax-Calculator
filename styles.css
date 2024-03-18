@@ -34,38 +34,34 @@ body {
 
     margin: 2em auto 1em;
     
-    > div {
-
-      display: flex;
-      align-items: center;
-
-      input {
-        display: block;
-        padding: 1em 1.5em;
-        width: 100%;
-        border: none;
-        outline: none;
-        background-color: hsl(0, 0%, 93%);
-        &:hover,
-        &:focus {
-          background-color: hsl(0, 0%, 90%);
-          box-shadow: none;
-        }
+    input {
+      display: block;
+      padding: 1em 1.5em;
+      margin-block: .5em;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: hsl(0, 0%, 93%);
+      &:hover,
+      &:focus {
+        background-color: hsl(0, 0%, 90%);
+        box-shadow: none;
       }
+    }
 
-      button {
-        display: block;
-        padding: 1em 1.5em;
-        border: none;
-        outline: none;
-        background-color: hsl(16, 100%, 50%);
-        color: white;
-        height: 100%;
-        cursor: pointer;
-        &:hover,
-        &:focus {
-          background-color: hsl(16, 100%, 45%);
-        }
+    button {
+      display: block;
+      padding: 1em 1.5em;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: hsl(16, 100%, 50%);
+      color: white;
+      height: 100%;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        background-color: hsl(16, 100%, 45%);
       }
     }
 
