@@ -131,10 +131,19 @@ function taxLayer(salary) {
   let tax = 0;
   const currentOrdinance = LAYERS[CURRENT_TAX].ordinance;
 
+  let data = [];
+
   for (let x in currentOrdinance) {
-    const layer = +x;
+    let row = [x, ...currentOrdinance[x]];
+    data.push(row);
+  }
+
+  data.sort((a, b) => b[0] - a[0]);
+
+  for (let row of data) {
+    let [layer, rate, amount] = row;
     if (salary > layer) {
-      tax = (salary - layer) * currentOrdinance[layer][0] + currentOrdinance[layer][1];
+      tax = (salary - layer) * rate + amount;
       return Math.ceil(tax / 100) * 100;
     }
   }
